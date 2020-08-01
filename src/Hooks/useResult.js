@@ -5,7 +5,7 @@ export default () => {
     const [results, setResults] = useState([])
     const [errMessage, seterrMessage] = useState('');
     const searchApi = async (searchTerm) => {
-        console.log('hi')
+       
         try {
             seterrMessage('')
             //console.log({errMessage})
@@ -18,7 +18,7 @@ export default () => {
 
         });
         
-        
+       
         setResults(response.data.businesses);
             } catch (err) {
                 seterrMessage('Something went wron')
