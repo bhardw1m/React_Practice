@@ -29,7 +29,7 @@ export default () => {
 
      }
     
-     const initialval = 'Love'
+     const initialval = 'Pasta'
 
     useEffect (() => {
         searchApi(initialval)

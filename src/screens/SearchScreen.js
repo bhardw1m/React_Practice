@@ -22,6 +22,8 @@ const SearchScreen = () => {
    
     const [term, setTerm] = useState('')
    const [searchApi, results, errMessage, initialval] = useResult('')
+
+
     
     const resultsByPrice = (price) => {
        
@@ -42,33 +44,31 @@ const SearchScreen = () => {
              
             } }    
         />
-        
-       
-        
+
          {errMessage ? <Text>{errMessage}</Text> : null}
        
-        {sRes ? (<Text style = {styles.textStyle}> You have searched for  "{sRes}"{"\n"}
+        {sRes ? (<Text style = {styles.textStyle}> You have searched "{sRes}"{"\n"}
         And we have found {results.length} {sInResult(results.length)} </Text>): 
-        (<Text style = {styles.textStyle}> You have searched for "{initialval}"{"\n"}
+        (<Text style = {styles.textStyle}> You have searched "{initialval}"{"\n"}
         And we have found {results.length} {sInResult(results.length)} </Text>)}
         <ScrollView>
         <ResultsList 
         resultsByPrice = {resultsByPrice('$')} 
         title = "Cost Friendly"
         />
-        <Text> Total Results in this category: {resultsByPrice('$').length}</Text>
+         {resultsByPrice('$').length > 0 ? (<Text> Total Results in this category: {resultsByPrice('$').length}</Text>): null}
 
         <ResultsList 
         resultsByPrice = {resultsByPrice('$$')}
         title = "Bit Pricier"
         />
-        <Text> Total Results in this category: {resultsByPrice('$$').length}</Text>
+        {resultsByPrice('$$').length > 0 ? (<Text> Total Results in this category: {resultsByPrice('$$').length}</Text>): null}
 
         <ResultsList 
         resultsByPrice = {resultsByPrice('$$$')} 
         title = "Big Spender"
         />
-        <Text> Total Results in this category: {resultsByPrice('$$$').length}</Text>
+        {resultsByPrice('$$$').length > 0 ? (<Text> Total Results in this category: {resultsByPrice('$$$').length}</Text>): null}
         </ScrollView>
         </View>
        
