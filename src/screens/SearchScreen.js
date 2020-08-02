@@ -26,8 +26,9 @@ const SearchScreen = ({navigation}) => {
         <SearchBar 
         term = {term} 
         onChangeTerm = {(newTerm) => {setTerm(newTerm)}}
-        onTermSubmit = {() => {searchApi({term})
-           getRes({term})
+        onTermSubmit = {() => {
+            searchApi({term})
+            getRes({term})
             setTerm('')
              
             } }    
@@ -37,7 +38,7 @@ const SearchScreen = ({navigation}) => {
         
          {errMessage ? <Text>{errMessage}</Text> : null}
        
-{sRes ? (<Text style = {styles.textStyle}> You have searched for  "{sRes}"{"\n"}
+        {sRes ? (<Text style = {styles.textStyle}> You have searched for  "{sRes}"{"\n"}
         And we have found {results.length} {sInResult(results.length)} </Text>): 
         (<Text style = {styles.textStyle}> You have searched for "Pasta"{"\n"}
         And we have found {results.length} {sInResult(results.length)} </Text>)}

@@ -21,7 +21,7 @@ export default () => {
         
         setResults(response.data.businesses);
             } catch (err) {
-                seterrMessage('Something went wron')
+                seterrMessage('Something went wrong')
                 {results.length = 0}
         } 
 
@@ -31,5 +31,6 @@ export default () => {
         searchApi('pasta')
       }, [])
 
+      //returning this because this info will be required by SearchScreen.js parent file
       return [searchApi, results, errMessage];
 }
